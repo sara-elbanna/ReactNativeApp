@@ -1,7 +1,8 @@
 import React, { useState ,useEffect} from 'react'
 import {View, Text, StyleSheet, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { getListOfUsers } from '../../store/actions/users-actions';
+import { getListOfUsers, deleteUser } from '../../store/actions/users-actions';
+import AddEditUser from './Add-EditUser';
 
 const styles = StyleSheet.create({
     user: {
@@ -12,11 +13,16 @@ const styles = StyleSheet.create({
 });
 
 class Users extends React.Component {
-    // state ={
-    //     users_list : ['sara','ammar','mai','hana']
-    // }
+    state ={
+        showAddModal: false
+    }
     componentDidMount(){
+        console.log('propssss',this.props)
+
         this.props.getListOfUsers()
+    }
+    handleDeleteUser = (id) =>{
+        this.props.deleteUser(id)
     }
     render(){
         if(!this.props.usersList) return <View>Loading...</View>
@@ -26,13 +32,15 @@ class Users extends React.Component {
         <View>
             {this.props.usersList.map((user,index) => {
                 return <View key={index} style={styles.user}>
-                    <Text>{user.name}</Text>
+                    <Text onPress={() => this.props.navigation.navigate('user',{id:user.id})}>{user.name}</Text>
+                    <Text onPress={()=>this.handleDeleteUser(user.id)}>X</Text>
                 </View>
             })}
         </View>
         <View>
-            {/* <Button onPress={this.showAddModal}>Add</Button> */}
+            <Button title="Add" onPress={()=>this.setState({ showAddModal: true})}/>
         </View>
+       {this.state.showAddModal && <AddEditUser onCancel={()=>this.setState({showAddModal:false})}/>}
     </View>
     }
     
@@ -45,6 +53,6 @@ const mapStateToProps = state => {
   };
   
   const mapDispatchToProps = {
-    getListOfUsers
+    getListOfUsers, deleteUser
   };
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

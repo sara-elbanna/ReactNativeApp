@@ -1,8 +1,7 @@
 import Axios from "axios";
-import { SET_USERS } from "./actionsTypes";
+import { SET_USERS, ADD_USER, DELETE_USER } from "./actionsTypes";
 
 export function getListOfUsers(){
-    console.log('hereeee')
     return ( dispatch , getState)=>{
         fetch('https://jsonplaceholder.typicode.com/users').then(r=>r.json()).then(res=>{
             console.log('qqqqqq',res)
@@ -16,5 +15,19 @@ function setUsers(users){
     return {
         type: SET_USERS,
         payload: users
+    }
+}
+
+export function addUser(user){
+    return{
+        type: ADD_USER,
+        payload: user
+    }
+
+}
+export function deleteUser(userId){
+    return{
+        type: DELETE_USER,
+        payload: userId
     }
 }
