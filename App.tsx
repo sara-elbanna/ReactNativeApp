@@ -19,9 +19,9 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen options={{headerTransparent: true}} name=' ' component={Home} />
-          <Stack.Screen options={{headerTransparent: true}} name="category" component={Category} />
+        <Stack.Navigator headerMode='none'>
+          <Stack.Screen options={{headerTransparent: true}} name='home' component={Home} />
+          <Stack.Screen  options={{headerTransparent: true}} name="category" component={Category} />
 
 
           <Stack.Screen name="user" component={User} />

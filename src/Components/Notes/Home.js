@@ -5,7 +5,6 @@ var globalStyle = require('../../style');
 var theme = require('../../theme')
 import {addCategory} from '../../store/actions/notes-actions'
 import {  Text } from 'react-native-elements';
-// import {  } from 'react-native-gesture-handler';
 
 
 const styles = StyleSheet.create({
@@ -26,7 +25,7 @@ const styles = StyleSheet.create({
     },
     category:{
         textTransform:'capitalize',
-        color: theme.colors.secondary
+        color: theme.colors.primary
     },
     centeredView: {
         flex: 1,
@@ -95,7 +94,7 @@ const styles = StyleSheet.create({
     addButton:{
         width: 60,
         borderRadius:50,
-        backgroundColor:theme.colors.primary,
+        backgroundColor:theme.colors.secondary,
         height:60,
         textAlign:'center',
         textAlignVertical:'center',
@@ -144,7 +143,6 @@ class Home extends React.Component {
                                 <Text style={styles.category}  h2 >{category.name}</Text>
                                 <Text style={styles.category} h2> {category.count} </Text>
                             </TouchableOpacity>                 
-                        {/* </View> */}
                     })}
                 </View>
             </ScrollView>
