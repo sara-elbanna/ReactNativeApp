@@ -4,6 +4,7 @@ import Users from './src/Components/Users/Users';
 import User from './src/Components/Users/User';
 import Home from './src/Components/Notes/Home';
 import Category from './src/Components/Notes/Category';
+import Note from './src/Components/Notes/Note';
 
 import configureStore from './src/store/configureStore';
 
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Navigator headerMode='none'>
           <Stack.Screen options={{headerTransparent: true}} name='home' component={Home} />
           <Stack.Screen  options={{headerTransparent: true}} name="category" component={Category} />
+          <Stack.Screen  options={{headerTransparent: true}} name="note" component={Note} />
 
 
           <Stack.Screen name="user" component={User} />

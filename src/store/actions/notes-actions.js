@@ -1,5 +1,5 @@
 import Axios from "axios";
-import {  ADD_NOTE, DELETE_NOTE, ADD_CATEGORY } from "./actionsTypes";
+import {  ADD_NOTE, DELETE_NOTE, ADD_CATEGORY, EDIT_NOTE, DELETE_ALL_NOTES, DELETE_SELECTED_NOTES } from "./actionsTypes";
 
 export function addCategory(category){
     console.log('category',category)
@@ -9,16 +9,34 @@ export function addCategory(category){
     }
 
 }
-export function addNote(note){
+export function addNote(categoryId){
     return{
         type: ADD_NOTE,
-        payload: note
+        payload: categoryId
     }
 
 }
-export function deleteNote(noteId){
+export function editNote(noteId, newContent){
+    return{
+        type: EDIT_NOTE,
+        payload: {noteId, newContent}
+    }
+}
+export function deleteNote(note){
     return{
         type: DELETE_NOTE,
-        payload: noteId
+        payload: note
+    }
+}
+export function deleteAllNotes(categoryId){
+    return{
+        type: DELETE_ALL_NOTES,
+        payload: categoryId
+    }
+}
+export function deleteSelectedNotes(categoryId, arrayOfnotes){
+    return{
+        type: DELETE_SELECTED_NOTES,
+        payload: { categoryId, arrayOfnotes}
     }
 }

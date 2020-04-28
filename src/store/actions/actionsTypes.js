@@ -4,5 +4,10 @@ export const DELETE_USER = 'DELETE_USER'
 
 export const ADD_NOTE = 'ADD_NEW_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
+export const EDIT_NOTE = 'EDIT_NOTE'
+
 export const ADD_CATEGORY = 'ADD_NEW_CATEGORY'
 export const DELETE_CATEGORY = 'DELETE_CATEGORY'
+
+export const DELETE_ALL_NOTES = 'DELETE_ALL_NOTES'
+export const DELETE_SELECTED_NOTES = 'DELETE_SELECTED_NOTES'
